@@ -1,6 +1,801 @@
 /*!
  * vue-material v1.0.0-beta-15
- * Made with <3 by marcosmoura 2020
+ * Made with <3 by marcosmoura 2022
  * Released under the MIT License.
  */
-!(function(e,t){var r,n;if("object"==typeof exports&&"object"==typeof module)module.exports=t(require("vue"));else if("function"==typeof define&&define.amd)define(["vue"],t);else{r=t("object"==typeof exports?require("vue"):e.Vue);for(n in r)("object"==typeof exports?exports:e)[n]=r[n]}})("undefined"!=typeof self?self:this,(function(e){return (function(e){function t(n){if(r[n])return r[n].exports;var o=r[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,t),o.l=!0,o.exports}var r={};return t.m=e,t.c=r,t.d=function(e,r,n){t.o(e,r)||Object.defineProperty(e,r,{configurable:!1,enumerable:!0,get:n})},t.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(r,"a",r),r},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=534)})({0:function(e,t){e.exports=function(e,t,r,n,o,u){var i,a,s,c,l,f=e=e||{},d=typeof e.default;return"object"!==d&&"function"!==d||(i=e,f=e.default),a="function"==typeof f?f.options:f,t&&(a.render=t.render,a.staticRenderFns=t.staticRenderFns,a._compiled=!0),r&&(a.functional=!0),o&&(a._scopeId=o),u?(s=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),n&&n.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(u)},a._ssrRegister=s):n&&(s=n),s&&(c=a.functional,l=c?a.render:a.beforeCreate,c?(a._injectStyles=s,a.render=function(e,t){return s.call(t),l(e,t)}):a.beforeCreate=l?[].concat(l,s):[s]),{esModule:i,exports:f,options:a}}},1:function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}var o,u,i,a;Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(e){var t={props:{mdTheme:null},computed:{$mdActiveTheme:function(){var e=u.default.enabled,t=u.default.getThemeName,r=u.default.getAncestorTheme;return e&&!1!==this.mdTheme?t(this.mdTheme||r(this)):null}}};return(0,a.default)(t,e)},o=r(4),u=n(o),i=r(6),a=n(i)},106:function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}var o,u,i,a;Object.defineProperty(t,"__esModule",{value:!0}),o=r(3),u=n(o),i=r(13),a=n(i),t.default=function(e){(0,u.default)(e),e.component(a.default.name,a.default)}},13:function(e,t,r){"use strict";function n(e){r(33)}var o,u,i,a,s,c,l,f,d,m;Object.defineProperty(t,"__esModule",{value:!0}),o=r(20),u=r.n(o);for(i in o)"default"!==i&&(function(e){r.d(t,e,(function(){return o[e]}))})(i);a=r(37),s=r(0),c=!1,l=n,f=null,d=null,m=s(u.a,a.a,c,l,f,d),t.default=m.exports},2:function(t,r){t.exports=e},20:function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}var o,u,i,a;Object.defineProperty(t,"__esModule",{value:!0}),o=r(1),u=n(o),i=r(34),a=n(i),t.default=new u.default({name:"MdIcon",components:{MdSvgLoader:a.default},props:{mdSrc:String}})},21:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n={};t.default={name:"MdSVGLoader",props:{mdSrc:{type:String,required:!0}},data:function(){return{html:null,error:null}},watch:{mdSrc:function(){this.html=null,this.loadSVG()}},methods:{isSVG:function(e){return"string"==typeof e&&e.indexOf("svg")>=0},setHtml:function(e){var t=this;n[this.mdSrc].then((function(e){return t.html=e,t.$nextTick()})).then((function(){return t.$emit("md-loaded")}))},unexpectedError:function(e){this.error="Something bad happened trying to fetch "+this.mdSrc+".",e(this.error)},loadSVG:function(){var e=this;n.hasOwnProperty(this.mdSrc)?this.setHtml():n[this.mdSrc]=new Promise(function(t,r){var n=new window.XMLHttpRequest;n.open("GET",e.mdSrc,!0),n.onload=function(){var o=n.getResponseHeader("content-type");200===n.status?e.isSVG(o)?(t(n.response),e.setHtml()):(e.error="The file "+e.mdSrc+" is not a valid SVG.",r(e.error)):n.status>=400&&n.status<500?(e.error="The file "+e.mdSrc+" do not exists.",r(e.error)):e.unexpectedError(r)},n.onerror=function(){return e.unexpectedError(r)},n.onabort=function(){return e.unexpectedError(r)},n.send()})}},mounted:function(){this.loadSVG()}}},3:function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}var o,u,i,a,s;Object.defineProperty(t,"__esModule",{value:!0}),r(7),o=r(5),u=n(o),i=r(4),a=n(i),s=function(){var e=new u.default({ripple:!0,theming:{},locale:{startYear:1900,endYear:2099,dateFormat:"yyyy-MM-dd",days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],shortDays:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],shorterDays:["S","M","T","W","T","F","S"],months:["January","February","March","April","May","June","July","August","September","October","November","December"],shortMonths:["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"],shorterMonths:["J","F","M","A","M","Ju","Ju","A","Se","O","N","D"],firstDayOfAWeek:0,cancel:"Cancel",confirm:"Ok"},router:{linkActiveClass:"router-link-active"}});return Object.defineProperties(e.theming,{metaColors:{get:function(){return a.default.metaColors},set:function(e){a.default.metaColors=e}},theme:{get:function(){return a.default.theme},set:function(e){a.default.theme=e}},enabled:{get:function(){return a.default.enabled},set:function(e){a.default.enabled=e}}}),e},t.default=function(e){e.material||(e.material=s(),e.prototype.$material=e.material)}},33:function(e,t){},34:function(e,t,r){"use strict";function n(e){r(35)}var o,u,i,a,s,c,l,f,d,m;Object.defineProperty(t,"__esModule",{value:!0}),o=r(21),u=r.n(o);for(i in o)"default"!==i&&(function(e){r.d(t,e,(function(){return o[e]}))})(i);a=r(36),s=r(0),c=!1,l=n,f=null,d=null,m=s(u.a,a.a,c,l,f,d),t.default=m.exports},35:function(e,t){},36:function(e,t,r){"use strict";var n=function(){var e=this,t=e.$createElement;return(e._self._c||t)("i",{staticClass:"md-svg-loader",domProps:{innerHTML:e._s(e.html)}})},o=[],u={render:n,staticRenderFns:o};t.a=u},37:function(e,t,r){"use strict";var n=function(){var e=this,t=e.$createElement,r=e._self._c||t;return e.mdSrc?r("md-svg-loader",{staticClass:"md-icon md-icon-image",class:[e.$mdActiveTheme],attrs:{"md-src":e.mdSrc},on:{"md-loaded":function(t){return e.$emit("md-loaded")}}}):r("i",{staticClass:"md-icon md-icon-font",class:[e.$mdActiveTheme]},[e._t("default")],2)},o=[],u={render:n,staticRenderFns:o};t.a=u},4:function(e,t,r){"use strict";var n,o,u,i,a;Object.defineProperty(t,"__esModule",{value:!0}),n=r(2),o=(function(e){return e&&e.__esModule?e:{default:e}})(n),u=null,i=null,a=null,t.default=new o.default({data:function(){return{prefix:"md-theme-",theme:"default",enabled:!0,metaColors:!1}},computed:{themeTarget:function(){return!this.$isServer&&document.documentElement},fullThemeName:function(){return this.getThemeName()}},watch:{enabled:{immediate:!0,handler:function(){var e=this.fullThemeName,t=this.themeTarget,r=this.enabled;t&&(r?(t.classList.add(e),this.metaColors&&this.setHtmlMetaColors(e)):(t.classList.remove(e),this.metaColors&&this.setHtmlMetaColors()))}},theme:function(e,t){var r=this.getThemeName,n=this.themeTarget;e=r(e),n.classList.remove(r(t)),n.classList.add(e),this.metaColors&&this.setHtmlMetaColors(e)},metaColors:function(e){e?this.setHtmlMetaColors(this.fullThemeName):this.setHtmlMetaColors()}},methods:{getAncestorTheme:function(e){var t,r=this;return e?(t=e.mdTheme,(function e(n){if(n){var o=n.mdTheme,u=n.$parent;return o&&o!==t?o:e(u)}return r.theme})(e.$parent)):null},getThemeName:function(e){var t=e||this.theme;return this.prefix+t},setMicrosoftColors:function(e){u&&u.setAttribute("content",e)},setThemeColors:function(e){i&&i.setAttribute("content",e)},setMaskColors:function(e){a&&a.setAttribute("color",e)},setHtmlMetaColors:function(e){var t,r="#fff";e&&(t=window.getComputedStyle(document.documentElement),r=t.getPropertyValue("--"+e+"-primary")),r&&(this.setMicrosoftColors(r),this.setThemeColors(r),this.setMaskColors(r))}},mounted:function(){var e=this;u=document.querySelector('[name="msapplication-TileColor"]'),i=document.querySelector('[name="theme-color"]'),a=document.querySelector('[rel="mask-icon"]'),this.enabled&&this.metaColors&&window.addEventListener("load",(function(){e.setHtmlMetaColors(e.fullThemeName)}))}})},5:function(e,t,r){"use strict";var n,o;Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(e){var t={};return o.default.util.defineReactive(t,"reactive",e),t.reactive},n=r(2),o=(function(e){return e&&e.__esModule?e:{default:e}})(n)},534:function(e,t,r){e.exports=r(106)},6:function(e,t,r){!(function(t,r){e.exports=r()})(0,(function(){"use strict";function e(e){return!!e&&"object"==typeof e}function t(e){var t=Object.prototype.toString.call(e);return"[object RegExp]"===t||"[object Date]"===t||r(e)}function r(e){return e.$$typeof===f}function n(e){return Array.isArray(e)?[]:{}}function o(e,t){return!1!==t.clone&&t.isMergeableObject(e)?s(n(e),e,t):e}function u(e,t,r){return e.concat(t).map((function(e){return o(e,r)}))}function i(e,t){if(!t.customMerge)return s;var r=t.customMerge(e);return"function"==typeof r?r:s}function a(e,t,r){var n={};return r.isMergeableObject(e)&&Object.keys(e).forEach((function(t){n[t]=o(e[t],r)})),Object.keys(t).forEach((function(u){r.isMergeableObject(t[u])&&e[u]?n[u]=i(u,r)(e[u],t[u],r):n[u]=o(t[u],r)})),n}function s(e,t,r){var n,i,s;return r=r||{},r.arrayMerge=r.arrayMerge||u,r.isMergeableObject=r.isMergeableObject||c,n=Array.isArray(t),i=Array.isArray(e),s=n===i,s?n?r.arrayMerge(e,t,r):a(e,t,r):o(t,r)}var c=function(r){return e(r)&&!t(r)},l="function"==typeof Symbol&&Symbol.for,f=l?Symbol.for("react.element"):60103;return s.all=function(e,t){if(!Array.isArray(e))throw Error("first argument should be an array");return e.reduce((function(e,r){return s(e,r,t)}),{})},s}))},7:function(e,t){}})}));
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("vue"));
+	else if(typeof define === 'function' && define.amd)
+		define(["vue"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("vue")) : factory(root["Vue"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(typeof self !== 'undefined' ? self : this, (function(__WEBPACK_EXTERNAL_MODULE_1__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 340);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+// runtime helper for setting properties on components
+// in a tree-shakable way
+exports.default = (sfc, props) => {
+    const target = sfc.__vccOpts || sfc;
+    for (const [key, val] of props) {
+        target[key] = val;
+    }
+    return target;
+};
+
+
+/***/ }),
+
+/***/ 1:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
+
+/***/ }),
+
+/***/ 15:
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type.\n| <md-svg-loader class=\"md-icon md-icon-image\" :md-src=\"mdSrc\" :class=\"[$mdActiveTheme]\" v-if=\"mdSrc\" @md-loaded=\"$emit('md-loaded')\" />\n|   <i class=\"md-icon md-icon-font\" :class=\"[$mdActiveTheme]\" v-else>\n|     <slot />");
+
+/***/ }),
+
+/***/ 16:
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected token (2:2)\nYou may need an appropriate loader to handle this file type.\n| \n|   <i class=\"md-svg-loader\" v-html=\"html\"></i>\n| ");
+
+/***/ }),
+
+/***/ 17:
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected token (2:2)\nYou may need an appropriate loader to handle this file type.\n| \n|   .md-svg-loader {\n|     display: block;\n| ");
+
+/***/ }),
+
+/***/ 18:
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected character '@' (2:2)\nYou may need an appropriate loader to handle this file type.\n| \n|   @import \"~components/MdAnimation/variables\";\n|   @import \"./mixins\";\n| ");
+
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__webpack_require__(6);
+
+var _MdReactive = __webpack_require__(4);
+
+var _MdReactive2 = _interopRequireDefault(_MdReactive);
+
+var _MdTheme = __webpack_require__(3);
+
+var _MdTheme2 = _interopRequireDefault(_MdTheme);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var init = function init() {
+  var material = new _MdReactive2.default({
+    ripple: true,
+    theming: {},
+    locale: {
+      startYear: 1900,
+      endYear: 2099,
+      dateFormat: 'yyyy-MM-dd',
+      days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      shortDays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      shorterDays: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      shortMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+      shorterMonths: ['J', 'F', 'M', 'A', 'M', 'Ju', 'Ju', 'A', 'Se', 'O', 'N', 'D'],
+      firstDayOfAWeek: 0,
+      cancel: 'Cancel',
+      confirm: 'Ok'
+    },
+    router: {
+      linkActiveClass: 'router-link-active'
+    }
+  });
+
+  Object.defineProperties(material.theming, {
+    metaColors: {
+      get: function get() {
+        return _MdTheme2.default.metaColors;
+      },
+      set: function set(metaColors) {
+        _MdTheme2.default.metaColors = metaColors;
+      }
+    },
+    theme: {
+      get: function get() {
+        return _MdTheme2.default.theme;
+      },
+      set: function set(theme) {
+        _MdTheme2.default.theme = theme;
+      }
+    },
+    enabled: {
+      get: function get() {
+        return _MdTheme2.default.enabled;
+      },
+      set: function set(enabled) {
+        _MdTheme2.default.enabled = enabled;
+      }
+    }
+  });
+
+  return material;
+};
+
+exports.default = function (Vue) {
+  if (!Vue.material) {
+    Vue.material = init();
+    Vue.prototype.$material = Vue.material;
+  }
+};
+
+/***/ }),
+
+/***/ 29:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _material = __webpack_require__(2);
+
+var _material2 = _interopRequireDefault(_material);
+
+var _MdIcon = __webpack_require__(8);
+
+var _MdIcon2 = _interopRequireDefault(_MdIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (Vue) {
+  (0, _material2.default)(Vue);
+  Vue.component(_MdIcon2.default.name, _MdIcon2.default);
+};
+
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var msColor = null;
+var themeColor = null;
+var maskIcon = null;
+
+exports.default = new _vue2.default({
+  data: function data() {
+    return {
+      prefix: 'md-theme-',
+      theme: 'default',
+      enabled: true,
+      metaColors: false
+    };
+  },
+  computed: {
+    themeTarget: function themeTarget() {
+      if (!this.$isServer) {
+        return document.documentElement;
+      }
+
+      return false;
+    },
+    fullThemeName: function fullThemeName() {
+      return this.getThemeName();
+    }
+  },
+  watch: {
+    enabled: {
+      immediate: true,
+      handler: function handler() {
+        var fullThemeName = this.fullThemeName,
+            themeTarget = this.themeTarget,
+            enabled = this.enabled;
+
+
+        if (themeTarget) {
+          if (enabled) {
+            themeTarget.classList.add(fullThemeName);
+            this.metaColors && this.setHtmlMetaColors(fullThemeName);
+          } else {
+            themeTarget.classList.remove(fullThemeName);
+            this.metaColors && this.setHtmlMetaColors();
+          }
+        }
+      }
+    },
+    theme: function theme(newTheme, oldTheme) {
+      var getThemeName = this.getThemeName,
+          themeTarget = this.themeTarget;
+
+
+      newTheme = getThemeName(newTheme);
+
+      themeTarget.classList.remove(getThemeName(oldTheme));
+      themeTarget.classList.add(newTheme);
+
+      if (this.metaColors) {
+        this.setHtmlMetaColors(newTheme);
+      }
+    },
+    metaColors: function metaColors(meta) {
+      if (meta) {
+        this.setHtmlMetaColors(this.fullThemeName);
+      } else {
+        this.setHtmlMetaColors();
+      }
+    }
+  },
+  methods: {
+    getAncestorTheme: function getAncestorTheme(component) {
+      var _this = this;
+
+      if (component) {
+        var currentTheme = component.mdTheme;
+        var getParentThemeName = function getParentThemeName(parent) {
+          if (parent) {
+            var mdTheme = parent.mdTheme,
+                $parent = parent.$parent;
+
+
+            if (mdTheme && mdTheme !== currentTheme) {
+              return mdTheme;
+            }
+
+            return getParentThemeName($parent);
+          }
+
+          return _this.theme;
+        };
+
+        return getParentThemeName(component.$parent);
+      }
+
+      return null;
+    },
+    getThemeName: function getThemeName(theme) {
+      var themeName = theme || this.theme;
+
+      return this.prefix + themeName;
+    },
+    setMicrosoftColors: function setMicrosoftColors(primaryColor) {
+      if (msColor) {
+        msColor.setAttribute('content', primaryColor);
+      }
+    },
+    setThemeColors: function setThemeColors(primaryColor) {
+      if (themeColor) {
+        themeColor.setAttribute('content', primaryColor);
+      }
+    },
+    setMaskColors: function setMaskColors(primaryColor) {
+      if (maskIcon) {
+        maskIcon.setAttribute('color', primaryColor);
+      }
+    },
+    setHtmlMetaColors: function setHtmlMetaColors(themeName) {
+      var primaryColor = '#fff';
+
+      if (themeName) {
+        var computedStyle = window.getComputedStyle(document.documentElement);
+
+        primaryColor = computedStyle.getPropertyValue('--' + themeName + '-primary');
+      }
+
+      if (primaryColor) {
+        this.setMicrosoftColors(primaryColor);
+        this.setThemeColors(primaryColor);
+        this.setMaskColors(primaryColor);
+      }
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    msColor = document.querySelector('[name="msapplication-TileColor"]');
+    themeColor = document.querySelector('[name="theme-color"]');
+    maskIcon = document.querySelector('[rel="mask-icon"]');
+
+    if (this.enabled && this.metaColors) {
+      window.addEventListener('load', (function () {
+        _this2.setHtmlMetaColors(_this2.fullThemeName);
+      }));
+    }
+  }
+});
+
+/***/ }),
+
+/***/ 340:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(29);
+
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function (data) {
+  var Instance = {};
+
+  _vue2.default.util.defineReactive(Instance, 'reactive', data);
+
+  return Instance.reactive;
+};
+
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 5:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function (newComponent) {
+  var defaults = {
+    props: {
+      mdTheme: null
+    },
+    computed: {
+      $mdActiveTheme: function $mdActiveTheme() {
+        var enabled = _MdTheme2.default.enabled,
+            getThemeName = _MdTheme2.default.getThemeName,
+            getAncestorTheme = _MdTheme2.default.getAncestorTheme;
+
+
+        if (enabled && this.mdTheme !== false) {
+          return getThemeName(this.mdTheme || getAncestorTheme(this));
+        }
+
+        return null;
+      }
+    }
+  };
+
+  return (0, _deepmerge2.default)(defaults, newComponent);
+};
+
+var _MdTheme = __webpack_require__(3);
+
+var _MdTheme2 = _interopRequireDefault(_MdTheme);
+
+var _deepmerge = __webpack_require__(7);
+
+var _deepmerge2 = _interopRequireDefault(_deepmerge);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports, __webpack_require__) {
+
+(function (global, factory) {
+	 true ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global = global || self, global.deepmerge = factory());
+}(this, (function () { 'use strict';
+
+	var isMergeableObject = function isMergeableObject(value) {
+		return isNonNullObject(value)
+			&& !isSpecial(value)
+	};
+
+	function isNonNullObject(value) {
+		return !!value && typeof value === 'object'
+	}
+
+	function isSpecial(value) {
+		var stringValue = Object.prototype.toString.call(value);
+
+		return stringValue === '[object RegExp]'
+			|| stringValue === '[object Date]'
+			|| isReactElement(value)
+	}
+
+	// see https://github.com/facebook/react/blob/b5ac963fb791d1298e7f396236383bc955f916c1/src/isomorphic/classic/element/ReactElement.js#L21-L25
+	var canUseSymbol = typeof Symbol === 'function' && Symbol.for;
+	var REACT_ELEMENT_TYPE = canUseSymbol ? Symbol.for('react.element') : 0xeac7;
+
+	function isReactElement(value) {
+		return value.$$typeof === REACT_ELEMENT_TYPE
+	}
+
+	function emptyTarget(val) {
+		return Array.isArray(val) ? [] : {}
+	}
+
+	function cloneUnlessOtherwiseSpecified(value, options) {
+		return (options.clone !== false && options.isMergeableObject(value))
+			? deepmerge(emptyTarget(value), value, options)
+			: value
+	}
+
+	function defaultArrayMerge(target, source, options) {
+		return target.concat(source).map((function(element) {
+			return cloneUnlessOtherwiseSpecified(element, options)
+		}))
+	}
+
+	function getMergeFunction(key, options) {
+		if (!options.customMerge) {
+			return deepmerge
+		}
+		var customMerge = options.customMerge(key);
+		return typeof customMerge === 'function' ? customMerge : deepmerge
+	}
+
+	function getEnumerableOwnPropertySymbols(target) {
+		return Object.getOwnPropertySymbols
+			? Object.getOwnPropertySymbols(target).filter((function(symbol) {
+				return target.propertyIsEnumerable(symbol)
+			}))
+			: []
+	}
+
+	function getKeys(target) {
+		return Object.keys(target).concat(getEnumerableOwnPropertySymbols(target))
+	}
+
+	function mergeObject(target, source, options) {
+		var destination = {};
+		if (options.isMergeableObject(target)) {
+			getKeys(target).forEach((function(key) {
+				destination[key] = cloneUnlessOtherwiseSpecified(target[key], options);
+			}));
+		}
+		getKeys(source).forEach((function(key) {
+			if (!options.isMergeableObject(source[key]) || !target[key]) {
+				destination[key] = cloneUnlessOtherwiseSpecified(source[key], options);
+			} else {
+				destination[key] = getMergeFunction(key, options)(target[key], source[key], options);
+			}
+		}));
+		return destination
+	}
+
+	function deepmerge(target, source, options) {
+		options = options || {};
+		options.arrayMerge = options.arrayMerge || defaultArrayMerge;
+		options.isMergeableObject = options.isMergeableObject || isMergeableObject;
+
+		var sourceIsArray = Array.isArray(source);
+		var targetIsArray = Array.isArray(target);
+		var sourceAndTargetTypesMatch = sourceIsArray === targetIsArray;
+
+		if (!sourceAndTargetTypesMatch) {
+			return cloneUnlessOtherwiseSpecified(source, options)
+		} else if (sourceIsArray) {
+			return options.arrayMerge(target, source, options)
+		} else {
+			return mergeObject(target, source, options)
+		}
+	}
+
+	deepmerge.all = function deepmergeAll(array, options) {
+		if (!Array.isArray(array)) {
+			throw new Error('first argument should be an array')
+		}
+
+		return array.reduce((function(prev, next) {
+			return deepmerge(prev, next, options)
+		}), {})
+	};
+
+	var deepmerge_1 = deepmerge;
+
+	return deepmerge_1;
+
+})));
+
+
+/***/ }),
+
+/***/ 8:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// EXTERNAL MODULE: ./src/components/MdIcon/MdIcon.vue?vue&type=template&id=59c14b8f
+var MdIconvue_type_template_id_59c14b8f = __webpack_require__(15);
+
+// EXTERNAL MODULE: ./src/core/MdComponent.js
+var MdComponent = __webpack_require__(5);
+var MdComponent_default = /*#__PURE__*/__webpack_require__.n(MdComponent);
+
+// EXTERNAL MODULE: ./src/components/MdSvgLoader/MdSvgLoader.vue?vue&type=template&id=0db3655e
+var MdSvgLoadervue_type_template_id_0db3655e = __webpack_require__(16);
+
+// CONCATENATED MODULE: ./src/components/MdSvgLoader/MdSvgLoader.vue?vue&type=script&lang=js
+
+  let mdSVGStore = {}
+
+  /* harmony default export */ var MdSvgLoadervue_type_script_lang_js = ({
+    name: 'MdSVGLoader',
+    props: {
+      mdSrc: {
+        type: String,
+        required: true
+      }
+    },
+    data: () => ({
+      html: null,
+      error: null
+    }),
+    watch: {
+      mdSrc () {
+        this.html = null
+        this.loadSVG()
+      }
+    },
+    methods: {
+      isSVG (mimetype) {
+        if (typeof mimetype !== 'string') return false
+        return mimetype.indexOf('svg') >= 0
+      },
+      setHtml (value) {
+        mdSVGStore[this.mdSrc].then((html) => {
+          this.html = html
+
+          return this.$nextTick()
+        }).then(() => this.$emit('md-loaded'))
+      },
+      unexpectedError (reject) {
+        this.error = `Something bad happened trying to fetch ${this.mdSrc}.`
+        reject(this.error)
+      },
+      loadSVG () {
+        if (!mdSVGStore.hasOwnProperty(this.mdSrc)) {
+          mdSVGStore[this.mdSrc] = new Promise((resolve, reject) => {
+            const request = new window.XMLHttpRequest()
+
+            request.open('GET', this.mdSrc, true)
+
+            request.onload = () => {
+              const mimetype = request.getResponseHeader('content-type')
+
+              if (request.status === 200) {
+                if (this.isSVG(mimetype)) {
+                  resolve(request.response)
+                  this.setHtml()
+                } else {
+                  this.error = `The file ${this.mdSrc} is not a valid SVG.`
+                  reject(this.error)
+                }
+              } else if (request.status >= 400 && request.status < 500) {
+                this.error = `The file ${this.mdSrc} do not exists.`
+                reject(this.error)
+              } else {
+                this.unexpectedError(reject)
+              }
+            }
+
+            request.onerror = () => this.unexpectedError(reject)
+            request.onabort = () => this.unexpectedError(reject)
+            request.send()
+          })
+        } else {
+          this.setHtml()
+        }
+      }
+    },
+    mounted () {
+      this.loadSVG()
+    }
+  });
+
+// EXTERNAL MODULE: ./src/components/MdSvgLoader/MdSvgLoader.vue?vue&type=style&index=0&id=0db3655e&lang=scss
+var MdSvgLoadervue_type_style_index_0_id_0db3655e_lang_scss = __webpack_require__(17);
+
+// EXTERNAL MODULE: ./node_modules/.pnpm/vue-loader@16.8.3_tkjio7cifk25h5tfwpoehfnw6a/node_modules/vue-loader/dist/exportHelper.js
+var exportHelper = __webpack_require__(0);
+var exportHelper_default = /*#__PURE__*/__webpack_require__.n(exportHelper);
+
+// CONCATENATED MODULE: ./src/components/MdSvgLoader/MdSvgLoader.vue
+
+
+
+
+
+
+
+const __exports__ = /*#__PURE__*/exportHelper_default()(MdSvgLoadervue_type_script_lang_js, [['render',MdSvgLoadervue_type_template_id_0db3655e["render"]],['__file',"src/components/MdSvgLoader/MdSvgLoader.vue"]])
+/* hot reload */
+if (false) {
+  __exports__.__hmrId = "0db3655e"
+  const api = __VUE_HMR_RUNTIME__
+  module.hot.accept()
+  if (!api.createRecord('0db3655e', __exports__)) {
+    console.log('reload')
+    api.reload('0db3655e', __exports__)
+  }
+  
+  module.hot.accept("./MdSvgLoader.vue?vue&type=template&id=0db3655e", () => {
+    console.log('re-render')
+    api.rerender('0db3655e', render)
+  })
+
+}
+
+
+/* harmony default export */ var MdSvgLoader = (__exports__);
+// CONCATENATED MODULE: ./src/components/MdIcon/MdIcon.vue?vue&type=script&lang=js
+
+  
+  
+
+  /* harmony default export */ var MdIconvue_type_script_lang_js = (new MdComponent_default.a({
+    name: 'MdIcon',
+    components: {
+      MdSvgLoader: MdSvgLoader
+    },
+    props: {
+      mdSrc: String
+    }
+  }));
+
+// EXTERNAL MODULE: ./src/components/MdIcon/MdIcon.vue?vue&type=style&index=0&id=59c14b8f&lang=scss
+var MdIconvue_type_style_index_0_id_59c14b8f_lang_scss = __webpack_require__(18);
+
+// CONCATENATED MODULE: ./src/components/MdIcon/MdIcon.vue
+
+
+
+
+
+
+
+const MdIcon___exports__ = /*#__PURE__*/exportHelper_default()(MdIconvue_type_script_lang_js, [['render',MdIconvue_type_template_id_59c14b8f["render"]],['__file',"src/components/MdIcon/MdIcon.vue"]])
+/* hot reload */
+if (false) {
+  MdIcon___exports__.__hmrId = "59c14b8f"
+  const api = __VUE_HMR_RUNTIME__
+  module.hot.accept()
+  if (!api.createRecord('59c14b8f', MdIcon___exports__)) {
+    console.log('reload')
+    api.reload('59c14b8f', MdIcon___exports__)
+  }
+  
+  module.hot.accept("./MdIcon.vue?vue&type=template&id=59c14b8f", () => {
+    console.log('re-render')
+    api.rerender('59c14b8f', render)
+  })
+
+}
+
+
+/* harmony default export */ var MdIcon = __webpack_exports__["default"] = (MdIcon___exports__);
+
+/***/ })
+
+/******/ });
+}));

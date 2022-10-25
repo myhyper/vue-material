@@ -1,16 +1,16 @@
-import Vue from 'vue'
-import { mount } from 'avoriaz'
+import Vue from "vue";
+import { mount } from "vue-test-utils";
 
 export default async (component, template, options = {}) => {
   const newComponent = Vue.component(`${component.name}-test`, {
     template,
     components: {
-      [component.name]: component
-    }
-  })
-  const wrapper = mount(newComponent, options)
+      [component.name]: component,
+    },
+  });
+  const wrapper = mount(newComponent, options);
 
-  await Vue.nextTick()
+  await Vue.nextTick();
 
-  return Promise.resolve(wrapper)
-}
+  return Promise.resolve(wrapper);
+};
