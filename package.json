@@ -1,18 +1,15 @@
 {
-  "name": "vue-material",
+  "name": "@mj2park/vue-material",
   "description": "Material Design for Vue.js",
-  "version": "1.0.0-beta-15",
+  "version": "2.0.0",
   "license": "MIT",
-  "author": {
-    "name": "marcosmoura",
-    "email": "marcosvmmoura@gmail.com"
-  },
+  "author": "mj2park <myeongje@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuematerial/vue-material.git"
+    "url": "git+https://github.com/myhyper/vue-material.git"
   },
   "bugs": {
-    "url": "https://github.com/vuematerial/vue-material/issues"
+    "url": "https://github.com/myhyper/vue-material/issues"
   },
   "files": [
     "dist",
@@ -172,5 +169,15 @@
   },
   "browserslist": [
     "> 1%"
+  ],
+  "homepage": "https://github.com/vuematerial/vue-material#readme",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "keywords": [
+    "vue3",
+    "material",
+    "design"
   ]
 }
