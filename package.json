@@ -1,6 +1,6 @@
 {
-  "name": "@mj2park/vue-material",
-  "description": "Material Design for Vue.js",
+  "name": "vue-material-for-vue3",
+  "description": "Material Design for Vue.js3",
   "version": "2.0.0",
   "license": "MIT",
   "author": "mj2park <myeongje@gmail.com>",
