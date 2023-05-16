@@ -118,5 +118,4 @@ Vue Material does not run under the umbrella of any company or anything like tha
 * Supported by <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">Creative Tim</a>
 
 ## License
-
 MIT
